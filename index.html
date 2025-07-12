@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMK Duniya CE </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Ultra-Luxury Global Styles ===== */
+        :root {
+            --deep-burgundy: #5a0a1a;
+            --ivory: #FFFFF0;
+            --antique-gold: #C5A258;
+            --soft-gold: #E8D8B5;
+            --charcoal: #2A2A2A;
+            --light-ivory: #FAF9F5;
+            --translucent-white: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Global link styling - removes all underlines */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Preserve your special underline effects where needed */
+        .main-nav ul li a::after {
+            /* Keep your animated underline for navigation */
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background-color: var(--antique-gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: transparent;
+            color: var(--deep-burgundy);
+            border: 1px solid var(--deep-burgundy);
+            border-radius: 0;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--deep-burgundy);
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--ivory);
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn-whatsapp {
+            border-color: #25D366;
+            color: #25D366;
+        }
+
+        .btn-whatsapp::before {
+            background-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--deep-burgundy);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 1px;
+            background-color: var(--antique-gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title .subtitle {
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--antique-gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* ===== Ultra-Premium Header ===== */
+        .announcement-bar {
+            background-color: var(--deep-burgundy);
+            color: var(--soft-gold);
+            text-align: center;
+            padding: 12px 0;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .header {
+            background-color: var(--ivory);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            padding: 20px 0;
+        }
+
+        .header.scrolled {
+            background-color: var(--translucent-white);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 36px;
+            margin-right: 12px;
+        }
+
+        .logo span {
+            font-size: 40px;
+            color: var(--deep-burgundy);
+            font-weight: 700;
+        }
+        .footer-logo .logo-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--ivory);
+        letter-spacing: 1px;
+       }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+
+        .main-nav ul li a {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--charcoal);
+            transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--deep-burgundy);
+        }
+
+        .main-nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icons a {
+            margin-left: 25px;
+            font-size: 16px;
+            color: var(--charcoal);
+            transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+        }
+
+        .header-icons a:hover {
+            color: var(--deep-burgundy);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--deep-burgundy);
+            color: var(--ivory);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--deep-burgundy);
+        }
+
+        /* ===== Ultra-Luxury Mobile Menu ===== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background-color: var(--ivory);
+            z-index: 1001;
+            transition: right 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            padding: 60px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu-close:hover {
+            color: var(--deep-burgundy);
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu ul li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu ul li:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu ul li:nth-child(4) { transition-delay: 0.4s; }
+
+        .mobile-menu ul li a {
+            font-size: 18px;
+            color: var(--charcoal);
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .mobile-menu ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background-color: var(--antique-gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-footer {
+            margin-top: auto;
+        }
+
+        .mobile-menu-footer p {
+            font-size: 12px;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            border: 1px solid var(--charcoal);
+            border-radius: 50%;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .social-links a:hover {
+            background-color: var(--deep-burgundy);
+            border-color: var(--deep-burgundy);
+            color: var(--ivory);
+            transform: translateY(-3px);
+        }
+
+        /* ===== Couture Hero Section ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--ivory);
+            margin-top: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 10s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s forwards;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* ===== Haute Categories Section ===== */
+        .categories {
+            padding: 120px 0 80px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            color: var(--ivory);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .category-card:hover .category-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-content h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .category-content p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* ===== Luxury Products Section ===== */
+        .products-section {
+            background-color: var(--light-ivory);
+            padding: 100px 0;
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background-color: transparent;
+            border: 1px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--deep-burgundy);
+            color: var(--ivory);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background-color: var(--ivory);
+            position: relative;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--antique-gold);
+            color: var(--charcoal);
+            padding: 6px 18px;
+            border-radius: 0;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--deep-burgundy);
+            margin-right: 10px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .old-price {
+            font-size: 14px;
+            color: var(--charcoal);
+            text-decoration: line-through;
+            font-weight: 300;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            max-width: 200px;
+            padding: 12px;
+            font-size: 12px;
+        }
+
+        /* ===== Luxury About Section ===== */
+        .about-section {
+            background-color: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1596704017256-9a8a8b0b0b0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-img {
+            position: relative;
+            overflow: hidden;
+            height: 600px;
+            box-shadow: 20px 20px 0 0 var(--soft-gold);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            color: var(--deep-burgundy);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--light-ivory);
+            border: 1px solid rgba(90, 10, 26, 0.1);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--deep-burgundy);
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== Elegant Contact Section ===== */
+        .contact-section {
+            background-color: var(--light-ivory);
+            position: relative;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            color: var(--deep-burgundy);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--antique-gold);
+            width: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .social-media {
+            margin-top: 40px;
+        }
+
+        .social-media h4 {
+            margin-bottom: 20px;
+            color: var(--deep-burgundy);
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 1px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 0;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .social-links a:hover {
+            background-color: var(--deep-burgundy);
+            color: var(--ivory);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background-color: var(--ivory);
+            padding: 50px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(90, 10, 26, 0.2);
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            background-color: transparent;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--deep-burgundy);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== Luxury Footer ===== */
+        .footer {
+            background-color: var(--deep-burgundy);
+            color: var(--soft-gold);
+            padding: 100px 0 0;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--antique-gold);
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--ivory);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 1px;
+            background-color: var(--antique-gold);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: var(--soft-gold);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--ivory);
+            padding-left: 5px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(197, 162, 88, 0.2);
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: 300;
+            color: var(--soft-gold);
+        }
+
+        /* ===== Luxury WhatsApp Float Button ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .whatsapp-float.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ===== Luxury Animations ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== Ultra-Luxury Responsive Styles ===== */
+        @media (max-width: 1200px) {
+            .about-content, .contact-container {
+                gap: 50px;
+            }
+            
+            .about-img {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+                height: 400px;
+                box-shadow: 15px 15px 0 0 var(--soft-gold);
+            }
+            
+            .footer-content {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-card {
+                height: 400px;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-icons a {
+                margin-left: 15px;
+            }
+            
+            .logo span {
+                font-size: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Luxury Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free shipping on orders over ₦50,000 | International shipping available</p>
+    </div>
+
+    <!-- Ultra-Premium Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <!-- Replace with your actual logo -->
+                        <span>FMK Clothing</span>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#products">Collections</a></li>
+                        <li><a href="#about">Heritage</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-icons">
+                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                    <a href="#" class="user-btn"><i class="fas fa-user"></i></a>
+                    <a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+                    <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Luxury Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close"><i class="fas fa-times"></i></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#products">Collections</a></li>
+            <li><a href="#about">Heritage</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <div class="social-links">
+                <a href="https://www.instagram.com/fmkofficials_?igsh=cjllMXNvbnA5eHVq" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Couture Hero Section -->
+    <section class="hero">
+        <img src="IMG_8629.jpg" alt="Luxury Fabrics" class="hero-bg">
+        <div class="container">
+            <div class="hero-content">
+                <h1>FMK Duniya CE</h1>
+                <p>Discover our exclusive collection of premium laces, African prints, and veils — where traditional craftsmanship meets contemporary elegance.</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn">Explore Collections</a>
+                    <a href="#about" class="btn">Our Heritage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">Our Collections</span>
+                <h2>Timeless Elegance</h2>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="IMG_8635.jpg" alt="Luxury Laces">
+                    <div class="category-content">
+                        <h3>Swiss Laces</h3>
+                        <p>Exquisite Swiss laces for the discerning woman</p>
+                        <a href="#products" class="btn" data-filter="laces">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="IMG_8643.jpg" alt="African Prints">
+                    <div class="category-content">
+                        <h3>Atampa</h3>
+                        <p>Authentic atampa and premium prints celebrating heritage</p>
+                        <a href="#products" class="btn" data-filter="Atampa">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="IMG_8648.jpg" alt="Elegant Veils">
+                    <div class="category-content">
+                        <h3>Jacquard Voile</h3>
+                        <p>Classy soft Voile's</p>
+                        <a href="#products" class="btn" data-filter="voile">Discover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">Featured Selection</span>
+                <h2>Signature Pieces</h2>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="laces">Laces</button>
+                <button class="filter-btn" data-filter="Atampa">Atampa</button>
+                <button class="filter-btn" data-filter="voile">Voile</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Products will be dynamically inserted here by JavaScript -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="#" class="btn">View All Collections</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="subtitle">Our Heritage</span>
+                    <h2>The FMK Duniya Story</h2>
+                    <p>Founded in 2010 by Farida Musa Kalla, FMK Duniya CE began as a small boutique in Kano with a vision to celebrate Northern Nigerian heritage through the finest fabrics. Today, we're a thriving women-led enterprise with four branches across Nigeria and a team of over 60 dedicated staff.</p>
+                    <p>Each piece in our collection tells a story - of tradition, craftsmanship, and modern elegance. We source only the most exquisite materials, working directly with artisans to create fabrics that honor our roots while appealing to contemporary tastes.</p>
+                    <p>As a proudly women-owned business, we're committed to empowering women at every level of our operations, from our skilled tailors to our management team.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Flagship Boutiques</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">60+</div>
+                            <div class="stat-label">Empowered Women</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1596704017256-9a8a8b0b0b0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="FMK Duniya Atelier">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elegant Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">Get In Touch</span>
+                <h2>Visit Our Ateliers</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 4 Boutiques Across Nigeria</p>
+                    <p><i class="fas fa-phone"></i> (Customer Care)</p>
+                    <p><i class="fas fa-envelope"></i> contact@fmkduniya.com</p>
+                    <p><i class="fas fa-clock"></i> Monday - Saturday: 9AM - 6PM</p>
+                    
+                    <div class="social-media">
+                        <h4>Follow Our Journey</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/fmkofficials_?igsh=cjllMXNvbnA5eHVq" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span class="logo-text">FMK Duniya CE</span>
+                    </div>
+                    <p>Celebrating Northern Nigerian heritage through exquisite fabrics and timeless designs.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/fmkofficials_?igsh=cjllMXNvbnA5eHVq" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Collections</h3>
+                    <ul>
+                        <li><a href="#products" data-filter="laces">Luxury Laces</a></li>
+                        <li><a href="#products" data-filter="Atampa">African Prints</a></li>
+                        <li><a href="#products" data-filter="voile">Elegant Veils</a></li>
+                        <li><a href="#products">New Arrivals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Client Services</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Wholesale Inquiries</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#">Boutique Locations</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FMK Duniya CE. All Rights Reserved. | Designed by M8-Web Dev</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Luxury WhatsApp Float Button -->
+    <a href="https://wa.me/#" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Luxury JavaScript -->
+    <script>
+        // Sample product data for FMK Duniya CE
+        const products = [
+            { 
+                name: 'Swiss Lace Collection', 
+                category: 'laces', 
+                price: '₦65,000', 
+                image: 'IMG_8623.jpg',
+                description: 'Exquisite Swiss laces with intricate patterns for special occasions',
+                badge: 'Bestseller'
+            },
+            { 
+                name: 'Swiss Lace Collection', 
+                category: 'laces', 
+                price: '', 
+                image: 'IMG_8629.jpg',
+                description: 'Exquisite Swiss laces with intricate patterns for special occasions',
+                badge: 'Bestseller'
+            },
+            { 
+                name: 'Royal Atampa', 
+                category: 'Atampa', 
+                price: '', 
+                image: 'IMG_8643.jpg',
+                description: 'Authentic premium Atampa prints celebrating Northern heritage',
+                badge: 'New'
+            },
+            { 
+                name: 'Jacquard Voile', 
+                category: 'voile', 
+                price: '', 
+                image: 'IMG_8649.jpg',
+                description: 'Classy soft voile fabric perfect for elegant outfits',
+                badge: 'New'
+            },
+            
+            { 
+                name: 'Jacquard Voile', 
+                category: 'voile', 
+                price: '₦33,000', 
+                image: 'IMG_8648.jpg',
+                description: 'Classy soft voile fabric perfect for elegant outfits',
+                badge: ''
+            },
+            { 
+                name: 'Premium Swiss Lace', 
+                category: 'laces', 
+                price: '', 
+                image: 'IMG_8624.jpg',
+                description: 'High-end Swiss lace with delicate embroidery',
+                badge: 'Luxury'
+            },
+            { 
+                name: 'Premium Swiss Lace', 
+                category: 'laces', 
+                price: '', 
+                image: 'IMG_8625.jpg',
+                description: 'High-end Swiss lace with delicate embroidery',
+                badge: 'Luxury'
+            },
+            { 
+                name: 'Premium Swiss Lace', 
+                category: 'laces', 
+                price: '', 
+                image: 'IMG_8627.jpg',
+                description: 'High-end Swiss lace with delicate embroidery',
+                badge: 'Luxury'
+            },
+            { 
+                name: 'Heritage Atampa', 
+                category: 'Atampa', 
+                price: '', 
+                image: 'IMG_8646.jpg',
+                description: 'Traditional Atampa prints with modern colorways',
+                badge: ''
+            },
+            { 
+                name: 'Heritage Atampa', 
+                category: 'Atampa', 
+                price: '', 
+                image: 'IMG_8645.jpg',
+                description: 'Traditional Atampa prints with modern colorways',
+                badge: ''
+            },
+            { 
+                name: 'Heritage Atampa', 
+                category: 'Atampa', 
+                price: '', 
+                image: 'IMG_8644.jpg',
+                description: 'Traditional Atampa prints with modern colorways',
+                badge: ''
+            },
+            { 
+                name: 'Sheer Voile', 
+                category: 'voile', 
+                price: '₦28,000', 
+                image: 'IMG_8647.jpg',
+                description: 'Lightweight sheer voile for graceful draping',
+                badge: 'Popular'
+            }
+        ];
+
+        // Function to render products
+        function renderProducts(filter = 'all') {
+            const productsGrid = document.querySelector('.products-grid');
+            productsGrid.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card visible';
+                productCard.dataset.category = product.category;
+                
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">
+                            <span class="current-price">${product.price}</span>
+                        </div>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-actions">
+                            <a href="#" class="btn">Add to Cart</a>
+                            <a href="https://wa.me/#?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-whatsapp">Order</a>
+                        </div>
+                    </div>
+                `;
+                
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            
+            // Set up filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderProducts(btn.dataset.filter);
+                });
+            });
+            
+            // Set up category links
+            document.querySelectorAll('[data-filter]').forEach(link => {
+                if (link.tagName === 'A') {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const filter = link.dataset.filter;
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        document.querySelector(`.filter-btn[data-filter="${filter}"]`).classList.add('active');
+                        renderProducts(filter);
+                        window.scrollTo({
+                            top: document.getElementById('products').offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Cart Counter
+        const cartCount = document.querySelector('.cart-count');
+        let count = 0;
+        
+        // This will be updated to work with dynamically added products
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn') && e.target.textContent.includes('Add to Cart')) {
+                e.preventDefault();
+                count++;
+                cartCount.textContent = count;
+                
+                // Animation for cart
+                const cartBtn = document.querySelector('.cart-btn');
+                cartBtn.classList.add('animate');
+                setTimeout(() => {
+                    cartBtn.classList.remove('animate');
+                }, 500);
+            }
+        });
+
+        // Animate product cards on scroll
+        const animateOnScroll = () => {
+            const products = document.querySelectorAll('.product-card');
+            const whatsappBtn = document.querySelector('.whatsapp-float');
+            
+            products.forEach((product, index) => {
+                const productPosition = product.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (productPosition < screenPosition) {
+                    setTimeout(() => {
+                        product.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+            
+            // Show WhatsApp button after scroll
+            if (window.scrollY > 500) {
+                whatsappBtn.classList.add('visible');
+            } else {
+                whatsappBtn.classList.remove('visible');
+            }
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
